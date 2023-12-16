@@ -20,14 +20,13 @@
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
     <!-- pre loader  -->
-    <div id="preloader"></div>
     <nav class="navbar">
         <div class="max-width">
-            <div class="logo"><a href="#">Seq<span>is</span></a></div>
+            <div class="logo"><a href="./index.html">Web<span>Flow</span></a></div>
             <ul class="menu">
-                <li><a href="#home" class="menu-btn">Home</a></li>
-                <li><a href="#about" class="menu-btn">Flash Cards</a></li>
-                <li><a href="#contact" class="menu-btn">Contact me</a></li>
+                <li><a href="./index.html" class="menu-btn">Home</a></li>
+                <li><a href="./flash-card.html" class="menu-btn">Flash Cards</a></li>
+                <li><a href="./contact.html" class="menu-btn">Contact me</a></li>
             </ul>
             <div class="menu-btn">
                 <i class="fas fa-bars"></i>
@@ -42,7 +41,6 @@
                 <div class="text-1">Hello,</div>
                 <div class="text-2">Welcome to my PROJECT</div>
                 <div class="text-3">And I'm a <span class="typing"></span></div>
-
             </div>
         </div>
         </div>
@@ -350,9 +348,10 @@
 
         <p>&copy; 2023 <a href="#" target="_blank">PROJECT</a> | All Rights Reserved |</p>
     </footer>
+    
+
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script src="script.js"></script>
     <!-- scroll bar js  -->
     <script type="text/javascript">
         var preogressbar = document.getElementById("preogressbar")
@@ -364,14 +363,6 @@
             preogressbar.style.height = progress + "%";
             percent.innerHTML = "Page Scrolled " + Math.round(progress) + "%"
         }
-    </script>
-    <!-- pre loader js  -->
-    <script>
-        var loader = document.getElementById("preloader");
-
-        window.addEventListener("load", function () {
-            loader.style.display = "none";
-        })
     </script>
     <!-- partial -->
     <script src="./assets/js/script.js"></script>

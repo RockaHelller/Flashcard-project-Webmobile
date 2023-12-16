@@ -177,7 +177,10 @@ section .title::after{
 /*#region Home section*/
 .home{
     display: flex;
-    background: url("https://images.pexels.com/photos/4360449/pexels-photo-4360449.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") no-repeat center;
+    /* background: url("https://images.pexels.com/photos/4360449/pexels-photo-4360449.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") no-repeat center; */
+    /* background: url("http://st.gde-fon.com/wallpapers_original/33970_nebo_voda_otrazhenie_lodki_doma_2000x1500_www.Gde-Fon.com.jpg") no-repeat center; */
+    background: url("http://st.gde-fon.com/wallpapers_original/33970_nebo_voda_otrazhenie_lodki_doma_2000x1500_www.Gde-Fon.com.jpg") no-repeat center;
+
     height: 100vh;
     color: #fff;
     min-height: 500px;
@@ -932,7 +935,6 @@ input,textarea
 
 /*#region Footer*/
 
-
 footer
 {
     position: relative;
@@ -1094,20 +1096,7 @@ footer .wave#wave4
     }
 }
 
-/* pr loader design  */
-#preloader
-{
-    background:url("img/e3a.gif") no-repeat center ;
-    background-size: 15%;
-    filter: invert(100%);
-    background-color: #fff;
-    height: 100vh;
-    width: 100%;
-    position: fixed;
-    cursor: pointer;
-    z-index: 1000;
-    /* border-radius: 12px; */
-}
+
 /* responsive media query start */
 @media (max-width: 1104px) {
     .about .about-content .left img{
