@@ -1,37 +1,3 @@
-const flashcardsData = [
-  { front: 'The "First Computer Programmer"', back: 'Ada Lovelace', flipped: false },
-  { front: 'The "First Computer Programmer"', back: 'Ada Lovelace', flipped: false },
-  { front: 'The "First Computer Programmer"', back: 'Ada Lovelace', flipped: false },
-  { front: 'The "First Computer Programmer"', back: 'Ada Lovelace', flipped: false },
-  { front: 'The "First Computer Programmer"', back: 'Ada Lovelace', flipped: false }
-];
-
-new Vue({
-  el: '#custom-flashcard-app',
-  data: {
-    cards: flashcardsData,
-    newFront: '',
-    newBack: '',
-    error: false,
-  },
-  methods: {
-    toggleCard: function(card) {
-      card.flipped = !card.flipped;
-    },
-    addNew: function() {
-      if (!this.newFront || !this.newBack) {
-        this.error = true;
-      } else {
-        this.cards.push({ front: this.newFront, back: this.newBack, flipped: false });
-        this.newFront = '';
-        this.newBack = '';
-        this.error = false;
-      }
-    },
-  },
-});
-
-
   $(document).ready(function(){
     $(window).scroll(function(){
         // sticky navbar on scroll script
@@ -101,3 +67,57 @@ new Vue({
         }
     });
 });
+
+
+
+
+
+
+$(".flip").click(function(){
+  $(this).parents(".card").toggleClass("flipped");
+});
+$(".clickcard").click(function(){
+  $(this).toggleClass("flipped");
+});
+
+
+
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+var editCards = document.querySelectorAll(".edit-card");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+editCards.forEach(function(editCard) {
+  editCard.onclick = function() {
+    modal.style.display = "block";
+  };
+});
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+

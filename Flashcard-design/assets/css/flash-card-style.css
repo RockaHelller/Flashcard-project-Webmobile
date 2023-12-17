@@ -1,4 +1,4 @@
-/*#region OG CARD DESIGN*/
+/*#region index Flow design*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
 
 * {
@@ -10,6 +10,13 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #eaeaea;
 }
 
 /* custom scroll bar */
@@ -93,173 +100,178 @@ section .title::after {
 
 /*#endregion#*/
 
-/*#region OG CSS*/
-  
-body {
-  text-align: center;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+/*#region cards-flip*/
+.container {
+  width: 1300px;
+  margin: 0 auto;
 }
 
-#custom-flashcard-app{
-  padding: 100px 0px;
+.card-holder {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-#custom-flashcard-app ul {
-  padding-left: 0;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
+button:focus {
+  outline: none;
 }
 
-#custom-flashcard-app li {
-  list-style-type: none;
-  padding: 10px 10px;
-  transition: all 0.3s ease;
-}
-
-#custom-flashcard-app .container {
-  max-width: 100%;
-  padding: 2em;
-}
-
-#custom-flashcard-app .card {
-  display: block;
-  width: 150px;
-  height: 175px;
-  padding: 80px 50px;
-  background-color: #51aae5;
-  border-radius: 7px;
-  margin: 5px;
-  text-align: center;
-  line-height: 27px;
-  cursor: pointer;
+.deck {
+  margin: 15px;
+  width: 270px;
+  height: 380px;
   position: relative;
-  color: #fff;
-  font-weight: 600;
-  font-size: 20px;
-  -webkit-box-shadow: 9px 10px 22px -8px rgba(209, 193, 209, .5);
-  -moz-box-shadow: 9px 10px 22px -8px rgba(209, 193, 209, .5);
-  box-shadow: 9px 10px 22px -8px rgba(209, 193, 209, .5);
-  will-change: transform;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  font-family: verdana;
+  border-radius: 10px;
 }
 
-#custom-flashcard-app li:hover {
-  transform: scale(1.1);
+.card {
+  width: 100%;
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+  border-radius: 10px;
 }
 
-#custom-flashcard-app li:nth-child(-n+3) .card {
-  background-color: #e65f51;
-}
-
-#custom-flashcard-app li:nth-child(2n+1) .card {
-  background-color: #a17de9;
-}
-
-#custom-flashcard-app li:nth-child(4n) .card {
-  background-color: #feca34;
-}
-
-#custom-flashcard-app li:nth-child(5n-2) .card {
-  background-color: #51aae5;
-}
-
-#custom-flashcard-app li:nth-child(4n+4) .card {
-  background-color: #feca34;
-}
-
-#custom-flashcard-app li:nth-child(-7n+7) .card {
-  background-color: #e46055;
-}
-
-#custom-flashcard-app .delete-card {
+.face {
   position: absolute;
-  right: 0;
-  top: 0;
-  padding: 10px 15px;
-  opacity: .4;
-  transition: all 0.5s ease;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  background-color: whitesmoke;
+  border-radius: 10px;
 }
 
-#custom-flashcard-app.delete-card:hover,
-.error {
-  opacity: 1;
-  transform: rotate(360deg);
-}
-
-#custom-flashcard-app .flip-enter-active {
-  transition: all 0.4s ease;
-}
-
-#custom-flashcard-app .flip-leave-active {
-  display: none;
-}
-
-#custom-flashcard-app .flip-enter,
-.flip-leave {
-  transform: rotateY(180deg);
-  opacity: 0;
-
-}
-
-#custom-flashcard-app .card.learned {
-  background-color: #5cb85c; /* Green background for learned cards */
-}
-
-#custom-flashcard-app .flashcard-form select {
-  border-radius: 5px;
-  border: 2px solid #eaeaea;
-  padding: 10px;
-  outline: none;
-  margin-left: 10px;
-}
-
-/* Form */
-#custom-flashcard-app .flashcard-form {
-  position: relative;
-  margin: 20px 0px;
-}
-
-#custom-flashcard-app label {
-  font-weight: 400;
-  color: #333;
-  margin-right: 10px;
-}
-
-#custom-flashcard-app input {
-  border-radius: 5px;
-  border: 2px solid #eaeaea;
-  padding: 10px;
-  outline: none;
-}
-
-#custom-flashcard-app button {
-  border-radius: 5px;
-  border: 1px solid #87cb84;
-  background-color: #87cb84;
-  padding: 8px 15px;
-  outline: none;
-  font-size: 14px;
-  font-weight: 700;
-  color: #fff;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 15px;
-}
-
-#custom-flashcard-app button:hover {
-  background-color: #70a66f;
-}
-
-#custom-flashcard-app .error {
-  margin-top: 10px;
+.back {
+  overflow: hidden;
+  z-index: -1;
   display: block;
-  color: #e44e42;
-  font-weight: 600;
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  box-sizing: border-box;
 }
 
-/*#endregion */
+.back:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: 100% 100%;
+  background: rgb(224 224 224);
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  transition: all 0.5s linear;
+}
+
+.front span{
+  position: absolute;
+  opacity: 0;
+  transition: 0.5s all;
+  padding: 10px;
+}
+
+.back span{
+  position: absolute;
+  opacity: 0;
+  transition: 0.5s all;
+  padding: 10px;
+}
+
+.edit-card{
+  top: 0;
+  right: 30px;
+  z-index: 2;
+}
+
+.delete-card{
+  top: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.front {
+  background: rgb(224 224 224);
+  z-index: 1;
+  box-shadow: 5px 5px 5px #aaa;
+
+}
+
+.front:hover span{
+  opacity: 9;
+}
+
+.back:hover span{
+  opacity: 9;
+}
+
+
+.back {
+  box-shadow: 0 0 0 #aaa;
+}
+
+.flipped,
+.hovercard:hover {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.flipped .front {
+  box-shadow: 0 0 0 #aaa;
+}
+
+.flipped .back {
+  box-shadow: 5px 5px 5px #aaa;
+}
+.rad-button {
+  border: 2px solid gray;
+  color: gray;
+  width: 90px;
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  bottom: 110px;
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+}
+
+.rad-button:hover {
+  color: gray;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.return {
+  position: absolute;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  color: gray;
+  cursor: pointer;
+  padding: 5px;
+  bottom: 0;
+  border-radius: 0 0 10px 10px;
+  background-color: darken(whitesmoke, 10%);
+  font-size: 18px;
+}
+
+.return:focus {
+  outline: none;
+}
+
+/*#endregion NEW*/
 
 /*#region Navbar*/
 
@@ -359,10 +371,78 @@ body {
 }
 /*#endregion */
 
+/*#region MODAL*/
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+/*#endregion#*/
 
 /*#region Footer*/
-
-
 footer
 {
     position: relative;
@@ -469,8 +549,8 @@ footer .wave
     left: 0;
     width: 100%;
     height: 100px;
-    background: url("https://ftl.deekshith.eu.org/354310/None?hash=AgADY7");
     background-size: 1000px 100px;
+    height: fit-content;
 }
 footer .wave#wave1
 {
@@ -506,6 +586,11 @@ footer .wave#wave4
   .about .about-content .left img {
     height: 350px;
     width: 350px;
+  }
+
+  .card-holder {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
