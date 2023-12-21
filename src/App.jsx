@@ -10,7 +10,6 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/flashcard" element={<Flashcard />} />
           <Route path="/contact" element={<Contact />} />
         </Route>
       </Routes>

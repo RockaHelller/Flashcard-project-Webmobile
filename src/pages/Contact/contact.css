@@ -1,9 +1,17 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #eaeaea;
+}
+
 input,
 textarea {
   caret-color: red;
 }
 .contact .title::after {
   content: "get in touch";
+  background: #eaeaea;
 }
 .contact .contact-content .column {
   width: calc(50% - 30px);
@@ -95,4 +103,17 @@ textarea {
 .right form .button-area button:hover {
   color: white;
   background: crimson;
+}
+
+.navbar {
+  position: fixed;
+}
+
+.navbar {
+  padding: 15px 0;
+  background: var(--main-default);
+}
+
+.navbar .logo a span {
+  color: #fff;
 }
