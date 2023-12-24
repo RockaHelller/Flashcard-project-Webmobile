@@ -21,18 +21,26 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: "SJS Hot N&apos; Spicy",
+      title: "React application",
       description: "React Practice in Web&Mobile1 Class",
       img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
       link: "https://rockahelller.github.io/my-react-app/",
     },
     {
       id: 4,
-      title: "SJS Hot N&apos; Spicy",
-      description: "SJS hot n spicy is and resturant project.",
-      img: "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      link: "#",
+      title: "KeepApp",
+      description: "Google Keeps Application",
+      img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Google_Keep_icon_%282020%29.svg/1200px-Google_Keep_icon_%282020%29.svg.png",
+      link: "https://rockahelller.github.io/KeepApp/",
     },
+    {
+      id: 5,
+      title: "To Do List",
+      description: "Created with HTML, CSS and JS",
+      img: "https://miro.medium.com/v2/resize:fit:512/1*GmMuqRe8cLZeKfT9fBP9Lg.jpeg",
+      link: "https://rockahelller.github.io/todolist/",
+    }
+
   ];
 
   return (
