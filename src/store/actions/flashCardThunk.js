@@ -43,9 +43,9 @@ export const createCard = createAsyncThunk(
 
 export const getCards = createAsyncThunk(
   "card/getCards",
-  async (_, thunkAPI) => {
+  async ({ sort }, thunkAPI) => {
     try {
-      const data = await fetchFlashCards();
+      const data = await fetchFlashCards({ sort });
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue("Error has occured.");
@@ -56,17 +56,7 @@ export const getCards = createAsyncThunk(
 export const updateCard = createAsyncThunk(
   "card/updateCard",
   async (
-    {
-      id,
-      text,
-      question,
-      image,
-      answer,
-      description,
-      answerImage,
-      dateTime,
-      status,
-    },
+    { id, text, question, image, answer, description, answerImage, dateTime },
     thunkAPI
   ) => {
     try {
@@ -79,7 +69,6 @@ export const updateCard = createAsyncThunk(
         description,
         answerImage,
         dateTime,
-        status,
       });
       return data;
     } catch (error) {
