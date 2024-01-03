@@ -8,7 +8,7 @@ import React from 'react';
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter>
       <React.StrictMode>
         <App />
       </React.StrictMode>
