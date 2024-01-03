@@ -14,6 +14,8 @@ const FlashCard = ({
   description,
   answerImage,
   status,
+  isSelected,
+  handleCardSelection,
 }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
@@ -22,6 +24,7 @@ const FlashCard = ({
   const handleFlip = (e) => {
     if (
       e.target instanceof HTMLButtonElement ||
+      e.target instanceof HTMLInputElement ||
       e.target.classList.contains("fa-solid")
     ) {
       return;
@@ -62,6 +65,11 @@ const FlashCard = ({
       onClick={handleFlip}
       id={`product-${id}`}
     >
+      <input
+        type="checkbox"
+        checked={isSelected}
+        onChange={() => handleCardSelection(id)}
+      />
       <button className="edit-card" onClick={handleEdit}>
         <i className="fa-solid fa-pen"></i>
       </button>

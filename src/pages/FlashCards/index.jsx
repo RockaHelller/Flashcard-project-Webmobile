@@ -16,6 +16,46 @@ const FlashCards = () => {
   const searchRef = useRef();
 
   const { cards } = useSelector((state) => state.card);
+  const [selectedCards, setSelectedCards] = useState([]);
+
+  const handleCardSelection = (cardId) => {
+    setSelectedCards((prevSelected) => {
+      if (prevSelected.includes(cardId)) {
+        return prevSelected.filter((id) => id !== cardId);
+      } else {
+        return [...prevSelected, cardId];
+      }
+    });
+  };
+
+  const generateJSONForSelectedCards = () => {
+    const selectedCardData = cards.filter((card) =>
+      selectedCards.includes(card.id)
+    );
+
+    const jsonData = selectedCardData.map((card) => ({
+      id: card.id,
+      text: card.text,
+      question: card.question,
+      image: card.image,
+      answer: card.answer,
+      description: card.description,
+      answerImage: card.answerImage,
+      status: card.status,
+      dateTime: card.dateTime,
+    }));
+
+    return JSON.stringify(jsonData, null, 2);
+  };
+
+  const sendEmailWithJSON = () => {
+    const jsonContent = generateJSONForSelectedCards();
+
+    const mailtoLink = `mailto:?subject=FlashCards&body=${encodeURIComponent(
+      jsonContent
+    )}`;
+    window.location.href = mailtoLink;
+  };
 
   useEffect(() => {
     dispatch(getCards({ sort: "_sort=dateTime&_order=asc" }));
@@ -99,6 +139,7 @@ const FlashCards = () => {
   const sortRef = useRef();
 
   const handleSort = () => {
+    console.log(sortRef.current.value);
     dispatch(
       getCards({
         sort: `_sort=${sortRef.current.value.split("_")[0]}&_order=${
@@ -107,6 +148,8 @@ const FlashCards = () => {
       })
     );
   };
+
+  console.log(selectedCards);
 
   return (
     <>
@@ -128,6 +171,9 @@ const FlashCards = () => {
             <option value="order_asc">By Order asc</option>
             <option value="order_desc">By Order desc</option>
           </select>
+          {selectedCards.length > 0 && (
+            <button onClick={sendEmailWithJSON}>Share</button>
+          )}
           <button onClick={() => handleOpenModal("Create")}>Create Card</button>
         </div>
         <div className="cards-container">
@@ -139,6 +185,8 @@ const FlashCards = () => {
                       key={card.id}
                       handleOpenModal={handleOpenModal}
                       setUpdateCard={setUpdateCard}
+                      isSelected={selectedCards.includes(card.id)}
+                      handleCardSelection={handleCardSelection}
                       {...card}
                     />
                   );
@@ -150,6 +198,8 @@ const FlashCards = () => {
                       key={card.id}
                       handleOpenModal={handleOpenModal}
                       setUpdateCard={setUpdateCard}
+                      isSelected={selectedCards.includes(card.id)}
+                      handleCardSelection={handleCardSelection}
                       {...card}
                     />
                   );
@@ -160,6 +210,8 @@ const FlashCards = () => {
                       key={card.id}
                       handleOpenModal={handleOpenModal}
                       setUpdateCard={setUpdateCard}
+                      isSelected={selectedCards.includes(card.id)}
+                      handleCardSelection={handleCardSelection}
                       {...card}
                     />
                   );
