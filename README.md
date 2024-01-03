@@ -44,4 +44,8 @@ Setting up Environment:
    ```bash
    npm run dev
    ```
+Deploymets:
+
+1.Github Pages: https://rockahelller.github.io/Flashcard-project-Webmobile/
+2.Vercel: https://flashcard-project-webmobile.vercel.app/
 

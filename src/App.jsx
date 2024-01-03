@@ -11,7 +11,6 @@ import { BrowserRouter } from "react-router-dom";
 function App() {
   return (
     <>
-      <BrowserRouter basename="Flashcard-project-Webmobile">
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
@@ -19,7 +18,6 @@ function App() {
             <Route path="/flashcards" element={<FlashCards />} />
           </Route>
         </Routes>
-      </ BrowserRouter>
     </>
   );
 }
