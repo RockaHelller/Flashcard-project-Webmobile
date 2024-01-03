@@ -4,6 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "homepage": "https://rockahelller.github.io/Flashcard-project-Webmobile",
+  
+
   "scripts": {
     "dev": "vite",
     "predeploy": "npm run build",
