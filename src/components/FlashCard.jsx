@@ -2,6 +2,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteCard, updateStatus } from "../store/actions/flashCardThunk";
+import React from 'react';
+
 
 const FlashCard = ({
   handleOpenModal,

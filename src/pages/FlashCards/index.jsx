@@ -5,6 +5,8 @@ import "./flashcards.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getCards, updateOrder } from "../../store/actions/flashCardThunk";
 import Sortable from "sortablejs";
+import React from 'react';
+
 
 const FlashCards = () => {
   const dispatch = useDispatch();
