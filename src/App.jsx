@@ -13,9 +13,9 @@ function App() {
     <>
         <Routes>
           <Route element={<Layout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/flashcards" element={<FlashCards />} />
+            <Route path="/Flashcard-project-Webmobile/" element={<Home />} />
+            <Route path="/Flashcard-project-Webmobile/contact" element={<Contact />} />
+            <Route path="/Flashcard-project-Webmobile/flashcards" element={<FlashCards />} />
           </Route>
         </Routes>
     </>

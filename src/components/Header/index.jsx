@@ -11,14 +11,14 @@ const Header = () => {
     <header>
       <nav
         className={`navbar ${
-          location.pathname == "/contact" || location.pathname == "/flashcards"
+          location.pathname == "/Flashcard-project-Webmobile/contact" || location.pathname == "/Flashcard-project-Webmobile/flashcards"
             ? "fixed"
             : ""
         }`}
       >
         <div className="max-width">
           <div className="logo">
-            <Link to={"/"}>
+            <Link to={"/Flashcard-project-Webmobile/"}>
               Web<span>Flow</span>
             </Link>
           </div>

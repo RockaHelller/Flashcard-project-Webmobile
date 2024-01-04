@@ -11,7 +11,7 @@ const Menu = () => {
       <ul className={`${menuOpen ? "active" : ""} menu`}>
         <li>
           <NavLink
-            to={"/"}
+            to={"/Flashcard-project-Webmobile/"}
             className={({ isActive }) =>
               (isActive ? "active" : "") + " menu-btn"
             }
@@ -21,7 +21,7 @@ const Menu = () => {
         </li>
         <li>
           <NavLink
-            to={"/flashcards"}
+            to={"/Flashcard-project-Webmobile/flashcards"}
             className={({ isActive }) =>
               (isActive ? "active" : "") + " menu-btn"
             }
@@ -31,7 +31,7 @@ const Menu = () => {
         </li>
         <li>
           <NavLink
-            to={"/contact"}
+            to={"/Flashcard-project-Webmobile/contact"}
             className={({ isActive }) =>
               (isActive ? "active" : "") + " menu-btn"
             }
