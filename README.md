@@ -49,4 +49,4 @@ Deploymets:
 1.Github Pages: https://rockahelller.github.io/Flashcard-project-Webmobile/ 
 
 2.Vercel: https://flashcard-project-webmobile.vercel.app/
-
+Note: Don't refresh the page. If page is refreshed error is occuring because of the Vercel. go back 1 page and then hit refresh or click on vercel link again.
