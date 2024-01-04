@@ -141,7 +141,6 @@ const FlashCards = () => {
   const sortRef = useRef();
 
   const handleSort = () => {
-    console.log(sortRef.current.value);
     dispatch(
       getCards({
         sort: `_sort=${sortRef.current.value.split("_")[0]}&_order=${
@@ -151,7 +150,6 @@ const FlashCards = () => {
     );
   };
 
-  console.log(selectedCards);
 
   return (
     <>

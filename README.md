@@ -37,7 +37,7 @@ Setting up Environment:
 
 4. Start the JSON Server:
    ```bash
-   cd .\src\data\json-server --watch db.json 
+   json-server --watch src/data/db.json
    ```
 
 5. Start the React App:
@@ -46,6 +46,7 @@ Setting up Environment:
    ```
 Deploymets:
 
-1.Github Pages: https://rockahelller.github.io/Flashcard-project-Webmobile/
+1.Github Pages: https://rockahelller.github.io/Flashcard-project-Webmobile/ 
+
 2.Vercel: https://flashcard-project-webmobile.vercel.app/
 
